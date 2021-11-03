@@ -14,8 +14,8 @@ int main() {
   //Oups, forgot to flag for token
   dinoCatFlag |= CreatureType::Token;
 
-  CreatureCard dCatCard = CreatureCard("Dinosaur Cat");
-  dCatCard.SetType(dinoCatFlag);
+  CreatureCard dCatCard = CreatureCard("Dinosaur Cat", dinoCatFlag);
+  //dCatCard.SetType(dinoCatFlag);
   dCatCard.SetMaxAttack(2);
   dCatCard.SetMaxLife(2);
   DisplayCreatureTypes(dCatCard);
@@ -27,7 +27,7 @@ int main() {
   dCatCard.Play();
   //string name, map<ManaType, int> cost, uint8_t superTypes, string description, string flavor, CardType type, Rarity rarity, int attack, int life
 
-  CreatureCard regalCaracal = CreatureCard("Regal Caracal", 
+  CreatureCard regalCaracal = CreatureCard("Regal Caracal", CreatureType::Cat,
 	map<ManaType::Type, int>{{ManaType::None, 3}, {ManaType::White, 2}},
 	SuperType::Basic,"","",
 	CardType::Permanent,
@@ -35,7 +35,7 @@ int main() {
 	3,3);
 
   regalCaracal.Play();
-  regalCaracal.SetType(CreatureType::Cat);
+  //regalCaracal.SetType(CreatureType::Cat);
   for(int c = 0; c<myBoardSide.size(); c++){
       if(myBoardSide[c].GetType()& CreatureType::Cat){
         myBoardSide[c].ChangeMaxAttack(1);
@@ -58,13 +58,13 @@ int main() {
   myBoardSide.push_back(whiteCatTwo);
   whiteCatTwo.Play();
 
-  CreatureCard chromium = CreatureCard("Chromium, the Mutable",
+  CreatureCard chromium = CreatureCard("Chromium, the Mutable",(CreatureType::Elder|CreatureType::Dragon|CreatureType::Legendary),
 	map<ManaType::Type, int>{{ManaType::None, 4}, {ManaType::White, 1}, {ManaType::Blue, 1}, {ManaType::Black, 1}},
 	SuperType::Legendary, "", "", 
 	CardType::Permanent, 
 	Rarity::MythicRare, 
 	7, 37);
-  chromium.SetType(CreatureType::Elder|CreatureType::Dragon|CreatureType::Legendary);
+  //chromium.SetType(CreatureType::Elder|CreatureType::Dragon|CreatureType::Legendary);
   chromium.SetAbilities(CreatureAbility::Flying | CreatureAbility::Flash);
   chromium.Play();
   //… … … 

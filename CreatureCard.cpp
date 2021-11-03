@@ -3,11 +3,11 @@
   
 using namespace std;
 
-CreatureCard::CreatureCard(string name, map<ManaType::Type, int> cost, uint8_t superTypes, string description, string flavor, CardType type, Rarity::Type rarity, int attack, int life):Card(name, cost, superTypes, description, flavor, type, rarity){
+CreatureCard::CreatureCard(string name, uint8_t flags, map<ManaType::Type, int> cost, uint8_t superTypes, string description, string flavor, CardType type, Rarity::Type rarity, int attack, int life):Card(name, cost, superTypes, description, flavor, type, rarity){
   mMaxAttack = attack;
   mMaxLife = life;
   mLife = mMaxLife;  //Life at creation is maximum
-
+	mCreatureType = flags;
 }
 CreatureCard::~CreatureCard(){
 
